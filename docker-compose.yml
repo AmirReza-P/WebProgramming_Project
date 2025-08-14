@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # The Backend Service (Node.js API)
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      # Use the Docker service name 'mongo' for the connection string
+      MONGO_URI: mongodb://mongo:27017/storetrack
+      # It's better to manage secrets properly, but for this project, this is fine
+      JWT_SECRET: your-super-secret-and-long-random-string-for-jwt
+    depends_on:
+      - mongo # This tells Docker to start the mongo service before the backend
+
+  # The Frontend Service (React App served by Nginx)
+  frontend:
+    build: ./frontend
+    ports:
+      # Map port 3000 on your local machine to port 80 inside the container (where Nginx is listening)
+      - "3000:80"
+    depends_on:
+      - backend # Wait for the backend to be ready before starting the frontend
+
+  # The Database Service (MongoDB)
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      # This creates a named volume to persist database data across container restarts
+      - mongo-data:/data/db
+
+# Define the named volume for data persistence
+volumes:
+  mongo-data:

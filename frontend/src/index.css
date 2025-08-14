@@ -1,0 +1,69 @@
+/*
+  New Color Palette:
+  - Main Background: #f4f7f6 (A slightly softer off-white)
+  - Navbar: #007991 (A deep, rich teal)
+  - Primary Text: #333
+  - Accent (Buttons, Highlights): #78cdd1 (A bright, complementary turquoise)
+  - Accent Hover: #5aa8ab
+  - Danger/Red: #d9534f
+*/
+
+body {
+  background-color: #f4f7f6 !important;
+  color: #333;
+}
+
+/* Navbar Theme */
+.navbar {
+  background-color: #007991 !important;
+}
+.navbar .navbar-brand, .navbar .nav-link {
+    color: #ffffff !important;
+}
+.navbar .nav-link:hover {
+    color: #e0f7fa !important;
+}
+
+/* Custom Accent Button */
+.btn-accent {
+  color: #fff;
+  background-color: #78cdd1;
+  border-color: #78cdd1;
+}
+
+.btn-accent:hover {
+  color: #fff;
+  background-color: #5aa8ab;
+  border-color: #5aa8ab;
+}
+
+/* Card and Table Styling */
+.card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Stock Status Badges */
+.stock-badge {
+    padding: 0.3em 0.8em;
+    border-radius: 25px; /* Fully rounded box */
+    font-weight: 500;
+    color: white;
+    display: inline-block;
+    min-width: 60px;
+    text-align: center;
+}
+
+.stock-low {
+    background-color: #d9534f; /* Red */
+}
+
+.stock-ok {
+    background-color: #5cb85c; /* Green */
+}
+
+/* Canceled Status Badge */
+.badge.bg-danger {
+    background-color: #d9534f !important;
+}

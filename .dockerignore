@@ -1,0 +1,16 @@
+# Ignore dependencies, as they are installed within the container
+node_modules
+
+# Ignore build artifacts from the frontend
+frontend/build
+
+# Ignore local environment files
+.env
+*.env
+
+# Ignore npm debug logs
+npm-debug.log*
+
+# Ignore system files
+.DS_Store
+Thumbs.db
