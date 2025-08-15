@@ -16,7 +16,7 @@ const MyOrders: React.FC = () => {
         fetchOrders();
     }, []);
 
-    // *** NEW: useEffect for searching ***
+    // useEffect for searching ***
     useEffect(() => {
         if (searchTerm === '') {
             setFilteredOrders(orders);
@@ -43,7 +43,7 @@ const MyOrders: React.FC = () => {
         <div>
             <h2>My Orders (Products I've Bought)</h2>
 
-            {/* *** NEW: SEARCH INPUT FIELD *** */}
+            {/* SEARCH INPUT FIELD *** */}
             <input
                 type="text"
                 className="form-control my-3"
@@ -52,7 +52,7 @@ const MyOrders: React.FC = () => {
                 onChange={e => setSearchTerm(e.target.value)}
             />
             
-            {/* *** CHANGED: Map over filteredOrders *** */}
+            {/* Map over filteredOrders *** */}
             {filteredOrders.map(order => (
                 <div key={order._id} className="card mb-3">
                     <div className="card-header d-flex justify-content-between">

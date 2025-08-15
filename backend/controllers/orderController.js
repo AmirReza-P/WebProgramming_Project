@@ -5,7 +5,6 @@ const InventoryLog = require('../models/InventoryLog');
 
 // POST /api/orders
 exports.createOrder = async (req, res) => {
-    // ... (This function remains the same, no changes needed here)
     const { cartItems } = req.body;
 
     try {
@@ -61,7 +60,6 @@ exports.createOrder = async (req, res) => {
 
 // GET /api/orders/placed (Orders I've Bought)
 exports.getPlacedOrders = async (req, res) => {
-    // ... (This function remains the same, no changes needed here)
     try {
         const orders = await Order.find({ buyer: req.user.id }).populate('seller', 'username').sort({ createdAt: -1 });
         res.json(orders);
@@ -72,7 +70,6 @@ exports.getPlacedOrders = async (req, res) => {
 
 // GET /api/orders/received (Orders I've Sold)
 exports.getReceivedOrders = async (req, res) => {
-    // ... (This function remains the same, no changes needed here)
     try {
         const orders = await Order.find({ seller: req.user.id }).populate('buyer', 'username').sort({ createdAt: -1 });
         res.json(orders);
@@ -91,7 +88,6 @@ exports.updateOrderStatus = async (req, res) => {
         const newStatus = req.body.status;
         const oldStatus = order.status;
 
-        // *** NEW LOGIC STARTS HERE ***
         // If the order is being canceled and it wasn't already canceled
         if (newStatus === 'Canceled' && oldStatus !== 'Canceled') {
             // Loop through each product in the order and restock it
@@ -110,7 +106,6 @@ exports.updateOrderStatus = async (req, res) => {
                 await log.save();
             }
         }
-        // *** NEW LOGIC ENDS HERE ***
 
         order.status = newStatus;
         await order.save();

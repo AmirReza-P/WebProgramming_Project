@@ -116,7 +116,6 @@ const MyInventory: React.FC = () => {
                 </tbody>
             </table>
             
-            {/* *** THIS IS THE COMPLETE, CORRECTED MODAL CODE *** */}
             {showModal && (
                 <div className="modal show" style={{ display: 'block' }} tabIndex={-1}>
                     <div className="modal-dialog">

@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Theme } from '../../theme'; // adjust path if needed
+import { Theme } from '../../theme'; 
 
 interface NavbarProps {
   isAuthenticated: boolean;
   setIsAuthenticated: (isAuth: boolean) => void;
-  theme: Theme;                // ★ NEW
-  toggleTheme: () => void;     // ★ NEW
+  theme: Theme;               
+  toggleTheme: () => void;     
 }
 
 const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, setIsAuthenticated, theme, toggleTheme }) => {
@@ -50,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, setIsAuthenticated, th
             <ul className="navbar-nav me-auto mb-2 mb-lg-0" />
           )}
 
-          {/* ★ NEW: Theme toggle switch */}
+          {/* Theme toggle switch */}
           <div className="d-flex align-items-center gap-3">
             <div className="form-check form-switch text-light m-0">
               <input

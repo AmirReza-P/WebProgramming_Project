@@ -41,7 +41,7 @@ const Marketplace: React.FC = () => {
         });
     };
     
-    // *** NEW: FUNCTION TO HANDLE CART QUANTITY CHANGE ***
+    // FUNCTION TO HANDLE CART QUANTITY CHANGE ***
     const handleQuantityChange = (productId: string, newQuantity: number) => {
         const productInStock = products.find(p => p._id === productId);
         if (!productInStock) return;
@@ -54,7 +54,7 @@ const Marketplace: React.FC = () => {
         ));
     };
 
-    // *** NEW: FUNCTION TO REMOVE ITEM FROM CART ***
+    // FUNCTION TO REMOVE ITEM FROM CART ***
     const removeFromCart = (productId: string) => {
         setCart(prevCart => prevCart.filter(item => item._id !== productId));
     };
@@ -71,7 +71,7 @@ const Marketplace: React.FC = () => {
             await api.post('/orders', orderPayload);
             alert('Order placed successfully!');
             setCart([]);
-            // *** NEW: REFRESH PRODUCT LIST AFTER CHECKOUT ***
+            // REFRESH PRODUCT LIST AFTER CHECKOUT ***
             fetchProducts();
         } catch (error: any) {
             alert(`Failed to place order: ${error.response?.data?.msg || 'Server error'}`);
@@ -120,7 +120,7 @@ const Marketplace: React.FC = () => {
                                 <li key={item._id} className="list-group-item d-flex flex-column">
                                     <div><strong>{item.name}</strong></div>
                                     <div className="d-flex justify-content-between align-items-center mt-2">
-                                        {/* *** NEW: QUANTITY INPUT AND REMOVE BUTTON *** */}
+                                        {/* QUANTITY INPUT AND REMOVE BUTTON *** */}
                                         <input 
                                             type="number" 
                                             className="form-control form-control-sm me-2" 

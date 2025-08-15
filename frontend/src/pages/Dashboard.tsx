@@ -55,8 +55,6 @@ const Dashboard: React.FC = () => {
                          </div>
                     </div>
                 </div>
-
-                {/* --- THIS IS THE CORRECTED, COMPLETE CODE FOR THE REPORT CARDS --- */}
                 
                 {/* Sales Report Card */}
                 <div className="col-md-6 mb-4">

@@ -3,7 +3,6 @@ import api from '../services/api';
 import { Order } from '../types';
 
 const MySales: React.FC = () => {
-    // ... (logic remains the same)
     const [sales, setSales] = useState<Order[]>([]);
 
     useEffect(() => {
@@ -20,7 +19,7 @@ const MySales: React.FC = () => {
         fetchSales();
     };
 
-    // *** NEW: HELPER FUNCTION FOR STATUS BADGE CLASS ***
+    // *** HELPER FUNCTION FOR STATUS BADGE CLASS ***
     const getStatusClass = (status: 'Pending' | 'Shipped' | 'Canceled') => {
         switch (status) {
             case 'Shipped': return 'bg-success';
@@ -38,7 +37,6 @@ const MySales: React.FC = () => {
                         <span>Order ID: {order._id}</span>
                         <span>Status: <span className={`badge ${getStatusClass(order.status)}`}>{order.status}</span></span>
                     </div>
-                     {/* ... (rest of the component is the same) ... */}
                      <div className="card-body">
                         <p><strong>Buyer:</strong> {order.buyer?.username || 'N/A'}</p>
                         <p><strong>Date:</strong> {new Date(order.createdAt).toLocaleDateString()}</p>

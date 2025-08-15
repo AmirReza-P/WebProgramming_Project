@@ -4,16 +4,22 @@ This project is built with a focus on clean architecture, robust features, and a
 Features
 Full User Authentication: Secure user registration and login using JSON Web Tokens (JWT).
 Personal Inventory Management: Each user gets a dedicated "My Inventory" page to add, edit, and delete their own products. Stock quantities can be updated manually.
+![alt text](image-3.png)
 Dynamic Marketplace: A global marketplace to browse and purchase products listed by all other users. Includes search and filtering capabilities.
+![alt text](image-4.png)
 Interactive Shopping Cart: Users can add items to a cart, adjust quantities, and remove items before a simple, one-click checkout process.
 Complete Order Management:
 My Orders: A page to view the status and details of all orders a user has placed.
+![alt text](image-5.png)
 My Sales: A page for users to manage the orders they have received, including updating the order status (e.g., from "Pending" to "Shipped").
+![alt text](image-6.png)
 Automated Stock Control: Stock is automatically decremented when a sale is made and automatically restocked if a seller cancels an order.
 Personal Dashboard & Reporting:
+![alt text](image-2.png)
 A comprehensive dashboard showing total sales figures.
 A detailed log of all inventory history (entrances and exits).
 Low-stock alerts for items with fewer than 6 units remaining, including a one-time notification modal upon login.
+![alt text](image-1.png)
 Technology Stack
 Back-End: Node.js, Express.js
 Front-End: React, TypeScript, Bootstrap
@@ -88,6 +94,7 @@ Authentication (/api/auth)
 Method	Endpoint	Description
 POST	/register	Create a new user account.
 POST	/login	Log in and receive a JWT.
+![alt text](image.png)
 Inventory (/api/inventory)
 Method	Endpoint	Description	Protected
 GET	/my-products	Get all products owned by the user.	Yes
