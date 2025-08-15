@@ -1,69 +1,95 @@
-/*
-  New Color Palette:
-  - Main Background: #f4f7f6 (A slightly softer off-white)
-  - Navbar: #007991 (A deep, rich teal)
-  - Primary Text: #333
-  - Accent (Buttons, Highlights): #78cdd1 (A bright, complementary turquoise)
-  - Accent Hover: #5aa8ab
-  - Danger/Red: #d9534f
-*/
+:root {
+  --bg: #f4f7f6;
+  --text: #333;
+  --navbar-bg: #007991;
+  --navbar-link: #ffffff;
+  --navbar-link-hover: #e0f7fa;
+  --accent: #78cdd1;
+  --accent-hover: #5aa8ab;
+  --danger: #d9534f;
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --success: #5cb85c; /* ★ new variable for green badge */
+}
+
+:root[data-theme='dark'] {
+  --bg: #101317;
+  --text: #ffffff;  /* ★ now pure white text */
+  --navbar-bg: #0b4250;
+  --navbar-link: #ffffff;
+  --navbar-link-hover: #bfe9ef;
+  --accent: #5aa8ab;
+  --accent-hover: #4a8e90;
+  --danger: #e06460;
+  --card-bg: #171b21;
+  --card-shadow: 0 6px 16px rgba(0,0,0,0.45);
+  --success: #4caf50; /* ★ darker green for dark mode */
+}
 
 body {
-  background-color: #f4f7f6 !important;
-  color: #333;
+  background-color: var(--bg) !important;
+  color: var(--text) !important; /* ★ ensure all default text switches color */
 }
 
 /* Navbar Theme */
 .navbar {
-  background-color: #007991 !important;
+  background-color: var(--navbar-bg) !important;
 }
-.navbar .navbar-brand, .navbar .nav-link {
-    color: #ffffff !important;
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: var(--navbar-link) !important;
 }
 .navbar .nav-link:hover {
-    color: #e0f7fa !important;
+  color: var(--navbar-link-hover) !important;
 }
 
 /* Custom Accent Button */
 .btn-accent {
   color: #fff;
-  background-color: #78cdd1;
-  border-color: #78cdd1;
+  background-color: var(--accent);
+  border-color: var(--accent);
 }
-
 .btn-accent:hover {
   color: #fff;
-  background-color: #5aa8ab;
-  border-color: #5aa8ab;
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
 }
 
 /* Card and Table Styling */
 .card {
-    border: none;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: var(--card-shadow);
+  color: var(--text); /* ★ ensure text inside cards adapts */
 }
 
 /* Stock Status Badges */
 .stock-badge {
-    padding: 0.3em 0.8em;
-    border-radius: 25px; /* Fully rounded box */
-    font-weight: 500;
-    color: white;
-    display: inline-block;
-    min-width: 60px;
-    text-align: center;
+  padding: 0.3em 0.8em;
+  border-radius: 25px;
+  font-weight: 500;
+  color: white;
+  display: inline-block;
+  min-width: 60px;
+  text-align: center;
 }
 
 .stock-low {
-    background-color: #d9534f; /* Red */
+  background-color: var(--danger);
 }
 
 .stock-ok {
-    background-color: #5cb85c; /* Green */
+  background-color: var(--success); /* ★ now theme-aware */
+}
+
+/* Table cells (Bootstrap override) */
+.table {
+  color: var(--text) !important; /* ★ ensure table text switches to white in dark mode */
 }
 
 /* Canceled Status Badge */
 .badge.bg-danger {
-    background-color: #d9534f !important;
+  background-color: var(--danger) !important;
+  color: white !important; /* ★ force white text */
 }
